@@ -1,0 +1,46 @@
+<html lang="pt-br">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Site de Vendas</title>
+    </head>
+
+    <body style="font-family: Arial, Helvetica, sans-serif;">
+
+        <h1>Site de Vendas</h1>
+        <hr>
+      
+        <p style="font-size: 23px; font-weight: bold;">Adicionar ao estoque</p>
+        <form action="/cadproduto" method="POST">
+            Nome: <input type="text" id="inNome"  name="nome" th:value="${nome}"><br>
+            Preço:  <input type="text" id="inPreco" name="preco" th:value="${preco}"><br>
+            Quantidade:  <input type="text" id="inQuantidade" name="quantidade" th:value="${qtd}"><br>
+            <input type="submit" value="Cadastrar">  
+        </form>
+        <hr>
+        <p style="font-size: 23px; font-weight: bold;">Adicionar ao carrinho</p>
+        <form action="/addcarrinho" method="POST">
+            Nome: <input type="text" id="inNome"  name="nomecar" th:value="${nomecar}"><br>
+            Quantidade: <input type="text" id="inQuantidade"  name="quantidadecar" th:value="${quantidadecar}"><br>
+            <input type="submit" value="Adicionar ao carrinho">  
+        </form>
+        <hr>
+        <p style="font-size: 23px; font-weight: bold;">Seu Carrinho:</p>
+        <ul th:each="item : ${carrinho}" style="list-style: none;">
+            <li th:utext="${item}"></li>
+        </ul>
+        <p th:utext="${infoCarrinho}"></p>
+        <form action="/vendercarrinho" method="POST">
+            <input type="submit" value="Finalizar compra">
+        </form>
+    <hr>
+    <p style="font-size: 23px; font-weight: bold;">No Estoque:</p>
+        <ul th:each="item : ${listaDeProdutos}"  style="list-style: none;">
+            <li th:utext="${item}"></li>
+        </ul>
+    <hr>
+    </body>
+
+</html>

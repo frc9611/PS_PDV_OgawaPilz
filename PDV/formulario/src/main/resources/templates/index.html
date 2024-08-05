@@ -1,0 +1,26 @@
+<html lang="pt-br">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Site de Vendas</title>
+    </head>
+
+    <body>
+
+        <h1>Site de Vendas</h1>
+        <hr>
+      
+        <h2>Compre ou venda seus produtos</h2>
+            <form action="/cadproduto" method="POST">
+                    Nome: <input type="text" id="inNome"  name="nome" th:value="${nome}"><br>
+                    Preço:  <input type="text" id="inPreco" name="preco" th:value="${preco}"><br>
+                    Quantidade:  <input type="text" id="inQuantidade" name="quantidade" th:value="${qtd}"><br>
+                <input type="submit" value="Cadastrar">  
+            </form>
+    <hr>
+    <h3></h3>
+    </body>
+
+</html>
