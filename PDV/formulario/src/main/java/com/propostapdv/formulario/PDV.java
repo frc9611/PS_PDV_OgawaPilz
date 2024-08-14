@@ -10,7 +10,7 @@ public class PDV {
     public static void AddProduto(String nome, double preco, int quantidade) throws SQLException {
         if (!ProdutoExiste(nome, ListaProdutos)) {
             ListaProdutos.add(new Produto(nome, preco, quantidade));
-            BancoDeDadosControl.AddProdutoDB();
+            BancoDeDadosCtrl.AddProdutoDB();
             AtualizarListaString();
         }
 
@@ -28,7 +28,7 @@ public class PDV {
 
     public static void AtualizarListaString() {
         try {
-            BancoDeDadosControl.AtualizarProdutosLocal();
+            BancoDeDadosCtrl.AtualizarProdutosLocal();
         } catch (SQLException e) {
             System.out.println("Falha na atualização SQL da lista local: " + e.getMessage());
         }
@@ -54,7 +54,7 @@ public class PDV {
     public static void RemoverProduto(String nome) {
         for (int n = 0; n < ListaProdutos.size(); n++) {
             if (ListaProdutos.get(n).Nome.equals(nome)) {
-                BancoDeDadosControl.RemoverProdutoDB(nome);
+                BancoDeDadosCtrl.RemoverProdutoDB(nome);
                 ListaProdutos.remove(n);
             }
         }
@@ -79,7 +79,7 @@ public class PDV {
     }
 
     public static void SubtrairQuantidade(int id, int quantidade) {
-        BancoDeDadosControl.AlterarQuantidade(ListaProdutos.get(id).Nome, quantidade);
+        BancoDeDadosCtrl.AlterarQuantidade(ListaProdutos.get(id).Nome, quantidade);
         (ListaProdutos.get(id).Quantidade) -= quantidade;
     }
 
